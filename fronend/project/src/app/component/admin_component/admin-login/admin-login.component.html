@@ -1,0 +1,117 @@
+
+
+<div class="flex justify-center items-center p-6 shadow-lg bg-black h-full overflow-hidden ">
+    <div class="w-80">
+      <form class="rounded">
+  
+        <h2 class="fw-bold text-uppercase text-center text-white pt-2">{{name}}</h2>
+  
+  
+  
+  
+     
+  
+  
+        <div class="form-group mb-6">
+  
+          <label class="block mb-1 ml-3 text-sm font-medium text-gray-900 dark:text-white"
+            for="typePasswordX">email</label>
+          <input type="email" name="email" [(ngModel)]=" loginAdminData.email"
+            class="form-control ml-3 bg-gray-50 block w-72 px-3 py-1.5 text-base font-normal text-gray-700 border border-gray-300 focus:ring-blue-500 focus:border-blue-500 bg-clip-padding border-solid rounded transition ease-in-out m-0 focus:text-gray-700 focus:outline-none dark:bg-gray-700 dark:border-gray-600 "
+            [pattern]=emailPattern #email="ngModel" required placeholder="enter your email" style="color: white;">
+  
+  
+            <div class="wrapper" *ngIf="!email.invalid && ( email.dirty || email.touched) && !email.errors?.['pattern']" style="margin-top: -4.5rem; margin-right: 1.5rem;">
+            <svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 130.2 130.2">
+              <circle class="path circle" fill="none" stroke="#73AF55" stroke-width="6" stroke-miterlimit="10" cx="65.1" cy="65.1" r="62.1"/>
+              <polyline class="path check" fill="none" stroke="#73AF55" stroke-width="6" stroke-linecap="round" stroke-miterlimit="10" points="100.2,40.2 51.5,88.8 29.8,67.5 "/>
+            </svg>
+          </div>
+            
+            <div class="wrapper" *ngIf="email.invalid && ( email.dirty || email.touched)" style="margin-top: -4.5rem; margin-right: 1.5rem;">
+            <svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 130.2 130.2">
+              <circle class="path circle" fill="none" stroke="#D06079" stroke-width="6" stroke-miterlimit="10" cx="65.1" cy="65.1" r="62.1"/>
+              <line class="path line" fill="none" stroke="#D06079" stroke-width="6" stroke-linecap="round" stroke-miterlimit="10" x1="34.4" y1="37.9" x2="95.8" y2="92.3"/>
+              <line class="path line" fill="none" stroke="#D06079" stroke-width="6" stroke-linecap="round" stroke-miterlimit="10" x1="95.8" y1="38" x2="34.4" y2="92.2"/>
+            </svg>
+            </div>
+            
+            
+  
+  
+          <div *ngIf="email.invalid && ( email.dirty || email.touched)">
+            <div *ngIf="email.errors?.['required']" class="text-red-700 font-semibold mt-2 ml-4">
+              email is required.
+            </div>
+            <div *ngIf="email.errors?.['pattern']" class="text-red-700 font-semibold mt-2 ml-4">
+              Email is not valid.
+            </div>
+          </div>
+  
+  
+        </div>
+  
+  
+  
+  
+        <div class="form-group mb-6">
+  
+  
+          <label class="block mb-1 ml-3 text-sm font-medium text-gray-900 dark:text-white"
+            for="typePasswordX">Password</label>
+          <input
+            class="form-control ml-3 bg-gray-50 block w-72 px-3 py-1.5 text-base font-normal text-gray-700 border border-gray-300 focus:ring-blue-500 focus:border-blue-500 bg-clip-padding border-solid rounded transition ease-in-out m-0 focus:text-gray-700 focus:outline-none dark:bg-gray-700 dark:border-gray-600 "
+            style="color: white;" type="password" id="password" name="password" [(ngModel)]=" loginAdminData.password"
+            #password="ngModel" required placeholder="password"  />
+  
+            <div class="wrapper" *ngIf="!password.invalid && (password.dirty || password.touched)" style="margin-top: -4.5rem; margin-right: 1.5rem;">
+              <svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 130.2 130.2">
+                <circle class="path circle" fill="none" stroke="#73AF55" stroke-width="6" stroke-miterlimit="10" cx="65.1" cy="65.1" r="62.1"/>
+                <polyline class="path check" fill="none" stroke="#73AF55" stroke-width="6" stroke-linecap="round" stroke-miterlimit="10" points="100.2,40.2 51.5,88.8 29.8,67.5 "/>
+              </svg>
+          </div>
+            
+            <div class="wrapper" *ngIf="password.invalid && (password.dirty || password.touched)" style="margin-top: -4.5rem; margin-right: 1.5rem;">
+            <svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 130.2 130.2">
+              <circle class="path circle" fill="none" stroke="#D06079" stroke-width="6" stroke-miterlimit="10" cx="65.1" cy="65.1" r="62.1"/>
+              <line class="path line" fill="none" stroke="#D06079" stroke-width="6" stroke-linecap="round" stroke-miterlimit="10" x1="34.4" y1="37.9" x2="95.8" y2="92.3"/>
+              <line class="path line" fill="none" stroke="#D06079" stroke-width="6" stroke-linecap="round" stroke-miterlimit="10" x1="95.8" y1="38" x2="34.4" y2="92.2"/>
+            </svg>
+            </div>
+  
+  
+          <div *ngIf="password.invalid && (password.dirty || password.touched)">
+            <div *ngIf="password.errors?.['required']" class="text-red-700 font-semibold mt-2 ml-4">
+              Password is required.
+            </div>
+            
+          </div>
+  
+  
+        </div>
+  
+  
+  
+  
+        <p class="text-red-700 font-semibold text-center">{{ErrMessage}}</p>
+
+  
+  
+        <button (click)="loginAdmin()" class="w-24 h-10 ml-24 -mt-2 mb-6
+        bg-blue-600
+        text-white
+        content-center
+        font-medium
+        leading-tight
+        uppercase
+        rounded
+        shadow-md
+        hover:bg-blue-700 hover:shadow-lg
+        focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0
+        active:bg-blue-800 active:shadow-lg
+        transition
+        duration-150" type="submit">login</button>
+  
+      </form>
+    </div>
+  </div>

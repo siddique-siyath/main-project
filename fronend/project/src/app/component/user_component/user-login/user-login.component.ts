@@ -36,14 +36,16 @@ export class UserLoginComponent {
           console.log(res);
           console.log(res.token);
           console.log(res.message);
-        localStorage.setItem('token', res.token)
+        localStorage.setItem('userToken', res.token)
         this._router.navigate(['/user_home'])
         }else if(res.errMessage == 'incorrectEmail'){
           this.ErrMessage = 'Email is not valid'
         }else if(res.errMessage == 'incorrectPassword'){
           this.ErrMessage = 'password is invalid'
+        }else if(res.errMessage == 'userBlocked'){
+          this.ErrMessage = 'user Blocked'
         }else{
-          
+
         }
       },
       (err:any) => {

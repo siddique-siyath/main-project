@@ -1,0 +1,73 @@
+<app-admin-navbar></app-admin-navbar>
+
+<div class="h-full w-full bg-black">
+    <div class="pt-10 flex flex-row justify-center">
+        <div class="overflow-x-auto relative shadow-md sm:rounded-lg">
+            <table class="w-full text-sm text-left text-blue-100 dark:text-blue-100 border border-blue-800">
+                <thead class="text-xs text-white uppercase bg-blue-600 border-b border-blue-400 dark:text-white">
+                    <tr>
+                        <th scope="col" class="py-3 px-6 bg-blue-500">
+                            user name
+                        </th>
+                        <th scope="col" class="py-3 px-6">
+                            email
+                        </th>
+                        <th scope="col" class="py-3 px-6 bg-blue-500">
+                            phone
+                        </th>
+                        <th scope="col" class="py-3 px-6">
+                            field
+                        </th>
+                        <th scope="col" class="py-3 px-6 bg-blue-500">
+                            license number
+                        </th>
+                        <th scope="col" class="py-3 px-6">
+                            location
+                        </th>
+                        <th scope="col" class="py-3 px-6 bg-blue-500">
+                            Block / UnBlock
+                        </th>
+                       
+                        
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="bg-blue-600 border-b border-blue-400 text-white" *ngFor="let data of vendorData">
+                        <td class="py-4 px-6 bg-blue-500 text-white">
+                            {{data.name}}
+                        </td>
+                        <td class="py-4 px-6">
+                            {{data.email}}
+                        </td>
+
+                        <td class="py-4 px-6 bg-blue-500 text-white">
+                            {{data.phone}}
+                        </td>
+                        <td class="py-4 px-6">
+                            {{data.field}}
+                        </td>
+
+                        <td class="py-4 px-6 bg-blue-500 text-white">
+                            {{data.licenseNumber}}
+                        </td>
+
+                        <td class="py-4 px-6">
+                            {{data.location}}
+                        </td>
+
+                      
+                       
+
+                        <td class="py-4 px-6 pl-12 bg-blue-500" *ngIf="data.status == true">
+                           <button type="submit" (click)="Block(data._id)" class="bg-red-600 w-14 h-7 rounded hover:text-black"><a>Block</a></button>
+                        </td>
+                        <td class="py-4 px-6 pl-8 bg-blue-500" *ngIf="data.status == false">
+                            <button type="submit" (click)="UnBlock(data._id)" class="bg-green-600 w-20 h-7 rounded hover:text-black"><a>UnBlock</a></button>
+                         </td>
+                    </tr>
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

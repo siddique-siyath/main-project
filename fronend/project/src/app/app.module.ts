@@ -9,6 +9,7 @@ import { HttpClientModule } from "@angular/common/http";
 import { FormsModule } from "@angular/forms";
 
 
+
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { UserLoginComponent } from './component/user_component/user-login/user-login.component';
 import { UserSignupComponent } from './component/user_component/user-signup/user-signup.component';
@@ -26,6 +27,14 @@ import { VendorLoginComponent } from './component/vendor_component/vendor-login/
 import { VendorSignupComponent } from './component/vendor_component/vendor-signup/vendor-signup.component';
 import { VendorFieldComponent } from './component/vendor_component/vendor-field/vendor-field.component';
 import { HotelHomeComponent } from './component/vendor_component/hotels/hotel-home/hotel-home.component';
+import { RestaurantHomeComponent } from './component/vendor_component/restaurant/restaurant-home/restaurant-home.component';
+import { GuideHomeComponent } from './component/vendor_component/guide/guide-home/guide-home.component';
+import { CarHomeComponent } from './component/vendor_component/car/car-home/car-home.component';
+import { VendorDetailsComponent } from './component/admin_component/vendor-details/vendor-details.component';
+import { VendorVerifyComponent } from './component/admin_component/vendor-verify/vendor-verify.component';
+import { AuthGuard } from './services/user_services/auth.guard';
+import { AuthAdminGuard } from './services/admin_services/auth-admin.guard';
+
 
 // import{MatDialogModule} from '@angular/material';  
 
@@ -48,6 +57,11 @@ import { HotelHomeComponent } from './component/vendor_component/hotels/hotel-ho
     VendorSignupComponent,
     VendorFieldComponent,
     HotelHomeComponent,
+    RestaurantHomeComponent,
+    GuideHomeComponent,
+    CarHomeComponent,
+    VendorDetailsComponent,
+    VendorVerifyComponent,
   ],
   imports: [
     BrowserModule,
@@ -58,7 +72,7 @@ import { HotelHomeComponent } from './component/vendor_component/hotels/hotel-ho
     FormsModule,
     // MatDialogModule
   ],
-  providers: [],
+  providers: [AuthGuard,AuthAdminGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

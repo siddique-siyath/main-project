@@ -33,6 +33,7 @@ export class AdminLoginComponent implements OnInit {
       (res:any) => {
         console.log(res);
         if(res.message == 'admin_logined'){
+          localStorage.setItem('adminToken',res.token)
         this._router.navigate(['/admin_home'])
         }else if(res.errMessage == 'incorrectEmail'){
           this.ErrMessage = 'Email is not valid'

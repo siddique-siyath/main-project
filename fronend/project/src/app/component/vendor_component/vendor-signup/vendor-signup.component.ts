@@ -55,8 +55,6 @@ export class VendorSignupComponent implements OnInit {
         
        let Data = await this._auth.setEmail({ message: email });
 
-        // let Data = await this.setData(this.registerVendorData)
-
         this._auth.registerVendor(this.registerVendorData)
           .subscribe(
             (res: any) => {

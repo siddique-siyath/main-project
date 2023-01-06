@@ -6,6 +6,7 @@ const bcrypt = require('bcrypt');
 const Vendor = require('../model/vendor');
 const { ObjectId } = require('mongodb');
 
+var jwt = require('jsonwebtoken');
 
 let session;
 
@@ -25,10 +26,12 @@ exports.admin_login = (req, res) => {
         .then((email) => {
             if (email) {
                 Admin.findOne({ password: adminData.password })
-                    .then((password) => {
-                        if (password) {
+                    .then((result) => {
+                        if (result) {
                             // res.status(200)
-                            res.json({ message: 'admin_logined' })
+                            let payload = { subject: result._id }
+                            let token = jwt.sign(payload, 'secretKey')
+                            res.json({ message: 'admin_logined' ,token})
                         } else {
                             // res.status(401)
                             res.json({ errMessage: 'incorrectPassword' })
@@ -138,6 +141,7 @@ exports.userUnBlock = (req, res) => {
 
 exports.vendorData = async (req, res) => {
     try {
+        console.log('sdghj');
         const vendorData = await Vendor.find({})
         if (vendorData) {
             console.log(vendorData);
@@ -157,3 +161,90 @@ exports.vendorData = async (req, res) => {
 
 
 
+
+// vendor Block
+
+exports.vendorBlock = (req, res) => {
+    console.log('asdfghj');
+    console.log(req.body.queryParams.id);
+    try {
+        let vendorId = req.body.queryParams.id
+        console.log(vendorId);
+        Vendor.findOneAndUpdate({ _id: vendorId }, { $set: { status: false } })
+            .then((result) => {
+                if (result) {
+                    console.log('changed');
+                    res.json({ message: 'changed' })
+                } else {
+                    console.log(err);
+                    res.status(401)
+                }
+            })
+            .catch((err) => {
+                console.log(err);
+            })
+    }
+    catch (err) {
+        console.log(err.message);
+    }
+}
+
+
+
+// vendor UnBlock
+
+exports.vendorUnBlock = (req, res) => {
+    console.log('asdfghj');
+    console.log(req.body.queryParams.id);
+    try {
+        let vendorId = req.body.queryParams.id
+        console.log(vendorId);
+        Vendor.findOneAndUpdate({ _id: vendorId }, { $set: { status: true } })
+            .then((result) => {
+                if (result) {
+                    console.log('changed');
+                    res.json({ message: 'changed' })
+                } else {
+                    console.log(err);
+                    res.status(401)
+                }
+            })
+            .catch((err) => {
+                console.log(err);
+            })
+    }
+    catch (err) {
+        console.log(err.message);
+    }
+}
+
+
+
+
+// verify_vendor
+
+
+exports.verify_vendor = (req,res) => {
+    console.log('asdfghj');
+    console.log(req.body.queryParams.id);
+    try {
+        let vendorId = req.body.queryParams.id
+        console.log(vendorId);
+        Vendor.findOneAndUpdate({ _id: vendorId }, { $set: { verification: true } })
+            .then((result) => {
+                if (result) {
+                    console.log('changed');
+                    res.json({ message: 'changed' })
+                } else {
+                    console.log(err);
+                    res.status(401)
+                }
+            })
+            .catch((err) => {
+                console.log(err);
+            })
+    }
+    catch (err) {
+        console.log(err.message);
+    }
+}

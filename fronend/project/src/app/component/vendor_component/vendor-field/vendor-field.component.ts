@@ -12,8 +12,8 @@ export class VendorFieldComponent implements OnInit {
 
   data: any
 
-  constructor(private _auth: VendorServicesService , private router:Router) { 
-   
+  constructor(private _auth: VendorServicesService, private router: Router) {
+
   }
 
   ngOnInit(): void {
@@ -30,21 +30,39 @@ export class VendorFieldComponent implements OnInit {
     console.log('1');
     const id = 'hotel'
 
-    this._auth.setData({ message: 'Hotel'});
+    this._auth.setData({ message: 'Hotel' });
 
     this.router.navigate(['/vendor/AddHotel']);
   }
 
   restaurant() {
     console.log('2');
+
+    const id = 'restaurant'
+
+    this._auth.setData({ message: 'restaurant' });
+
+    this.router.navigate(['vendor/add_restaurant']);
   }
 
   car() {
     console.log('3');
+
+    const id = 'car'
+
+    this._auth.setData({ message: 'car' });
+
+    this.router.navigate(['/vendor/add_car']);
   }
 
   guide() {
     console.log('4');
+
+    const id = 'guide'
+
+    this._auth.setData({ message: 'guide' });
+
+    this.router.navigate(['/vendor/add_guide']);
   }
 
 }

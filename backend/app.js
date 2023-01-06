@@ -1,28 +1,30 @@
-const express=require('express')
+const express = require('express')
 // const db=require('./server/database/connection')
-const mongoose =require('mongoose')
+const mongoose = require('mongoose')
 
 const bcrypt = require('bcrypt');
 var jwt = require('jsonwebtoken');
+const multer = require('multer')
 
-    
+const jwt_decode = require("jwt-decode")
+
 const app = express();
 
-const userRouter=require('./server/router/user_router')
+const userRouter = require('./server/router/user_router')
 const adminRouter = require('./server/router/admin_router')
 const vendorRouter = require('./server/router/vendor_router')
 
-app.use(express.urlencoded({extended:false}))
+app.use(express.urlencoded({ extended: false }))
 
 const cors = require('cors')
 
-const sessions=require('express-session')
+const sessions = require('express-session')
 app.use(express.static('public'))
-const PORT=3000
+const PORT = 3000
 
 
 
-app.use('/uploads',express.static('upload'))
+app.use('/uploads', express.static('upload'))
 
 
 
@@ -36,21 +38,21 @@ app.get('/', (req, res) => {
 
 
 app.use(userRouter)
-app.use('/admin',adminRouter)
-app.use('/vendor',vendorRouter)
+app.use('/admin', adminRouter)
+app.use('/vendor', vendorRouter)
 
 
 
 //session
 app.use(sessions({
-    secret : 'verygoodpassword',
-    resave : false,
-    saveUninitialized : true,
-    cookie : {maxAge: 6000000}
+    secret: 'verygoodpassword',
+    resave: false,
+    saveUninitialized: true,
+    cookie: { maxAge: 6000000 }
 }))
 
 
-app.listen(PORT, function(){
+app.listen(PORT, function () {
     console.log('server is running on localhost ' + PORT);
 })
 
@@ -67,6 +69,7 @@ mongoose.connect(db)
     })
 
 
-          
 
-               
+
+
+

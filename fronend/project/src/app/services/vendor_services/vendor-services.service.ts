@@ -31,6 +31,7 @@ export class VendorServicesService {
     return this.data;
   }
 
+
   constructor(private http: HttpClient) { }
 
   // setData(data: any) {

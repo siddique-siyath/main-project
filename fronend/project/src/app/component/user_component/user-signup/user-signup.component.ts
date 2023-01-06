@@ -46,6 +46,7 @@ export class UserSignupComponent {
             (res: any) => {
               console.log(res)
               if (res.message == 'signup') {
+                localStorage.setItem('userToken', res.token)
                 this._router.navigate(['/user_home'])
               } else if (res.errMessage == 'already exist') {
                 this.errorMsg = "user is already exist"

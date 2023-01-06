@@ -13,11 +13,11 @@ export class UserServiceService {
   private _loginUrl = "http://localhost:3000/user_login"
 
 
-  constructor (private http:HttpClient) {}
+  constructor(private http: HttpClient) { }
 
- registerUser(user: any) {
+  registerUser(user: any) {
     console.log(user);
-    return this.http.post<any>(this._registerUrl, user) 
+    return this.http.post<any>(this._registerUrl, user)
   }
 
 
@@ -26,6 +26,11 @@ export class UserServiceService {
     console.log(this._loginUrl);
     console.log(user);
     return this.http.post<any>(this._loginUrl, user)
+  }
+
+
+  loggedIn() {
+    return !!localStorage.getItem('userToken')
   }
 
 }

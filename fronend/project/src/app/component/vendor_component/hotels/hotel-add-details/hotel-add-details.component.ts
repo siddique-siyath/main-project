@@ -17,8 +17,8 @@ export class HotelAddDetailsComponent implements OnInit {
   errorMsg: string = ''
 
   hotelData = {
-    "email":'',
-    "type":'',
+    "email": '',
+    "type": '',
     "name": '',
     "location": '',
     "licenceNumber": '',
@@ -26,40 +26,40 @@ export class HotelAddDetailsComponent implements OnInit {
   }
 
   data: any
-  email:any
+  email: any
 
-  constructor(private _auth: HotelServicesService , private dataService:VendorServicesService , private _router: Router, private route: ActivatedRoute) {
+  constructor(private _auth: HotelServicesService, private dataService: VendorServicesService, private _router: Router, private route: ActivatedRoute) {
     this.data = this.dataService.getData();
-    console.log('data',this.data.message);
+    console.log('data', this.data.message);
 
     this.email = this.dataService.getEmail();
-    console.log('data',this.email.message);
-    
+    console.log('data', this.email.message);
+
   }
 
   ngOnInit(): void {
-// console.log(this.data);
+    // console.log(this.data);
 
-console.log(this.hotelData.image1);
+    console.log(this.hotelData.image1);
 
 
   }
-  
+
 
   AddHotelDetails() {
 
     if (this.hotelData.name != '' && this.hotelData.location != '' && this.hotelData.licenceNumber != '') {
-      
-  
+
+
 
       this.data = this.dataService.getData();
-      console.log('data',this.data.message);
+      console.log('data', this.data.message);
       this.hotelData.type = this.data.message
-  
+
       this.email = this.dataService.getEmail();
-      console.log('data',this.email.message);
+      console.log('data', this.email.message);
       this.hotelData.email = this.email.message
-      
+
       console.log(this.hotelData);
       this._auth.AddHotel(this.hotelData)
         .subscribe(
@@ -85,5 +85,6 @@ console.log(this.hotelData.image1);
 
 
   }
+
 
 }

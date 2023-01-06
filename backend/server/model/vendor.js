@@ -33,6 +33,15 @@ const VendorSchema = new Schema({
         type: String,
         // required: true
     },
+    carNumber:{
+        type:String,
+    },
+    restaurantName:{
+        type : String,
+    },
+    adharNumber:{
+        type : String,
+    },
     location: {
         type: String,
         // required: true
@@ -44,6 +53,9 @@ const VendorSchema = new Schema({
     licensePhoto: {
         type: String,
         // required: true
+    },
+    image1:{
+        type:String
     }
 
 }, { timestamps: true })

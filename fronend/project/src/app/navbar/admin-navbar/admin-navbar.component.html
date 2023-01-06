@@ -6,22 +6,34 @@
       </li>
       <li class="mr-6">
         <a class="text-blue-50 text-xl hover:text-blue-500" routerLink="/admin/user_details"
-          routerLinkActive="active">users</a>
+          routerLinkActive="active">users details</a>
+      </li>
+      <li class="mr-6">
+        <a class="text-blue-50 text-xl hover:text-blue-500" routerLink="/admin/vendor_details"
+          routerLinkActive="active">vendors details</a>
+      </li>
+      <li class="mr-6">
+        <a class="text-blue-50 text-xl hover:text-blue-500" routerLink="/admin/vendor_verify"
+          routerLinkActive="active">vendors verify</a>
       </li>
       <li class="mr-6">
         <a class="text-blue-50 text-xl hover:text-blue-500" routerLink="/admin_login"
           routerLinkActive="active">Login</a>
       </li>
+      
+      
     </ul>
   </div>
-  <div class="mb-8">
+
+
+
+  <div class="mb-8" *ngIf="admin == true">
     <ul class="justify-end">
       <li class="">
-        <button class="bg-red-600 h-8 w-20 rounded-md">
-          <a class="text-blue-50 text-xl hover:text-blue-900" routerLink="/admin_login"
+        <button type="submit" (click)="logout()" class="bg-red-600 h-8 w-20 rounded-md">
+          <a class="text-blue-50 text-xl hover:text-blue-900"
             routerLinkActive="active">Logout</a>
         </button>
       </li>
     </ul>
-  </div>
-</nav>
+  </div> 

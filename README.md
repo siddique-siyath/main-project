@@ -11,6 +11,12 @@
 
 
 
+![This is an image](/main-project/fronend/project/images/Go Trip.png)
+
+
+
+
+
 ## Run
 
 

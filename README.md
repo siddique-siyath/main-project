@@ -11,7 +11,7 @@
 
 
 
-![This is an image](/main-project/fronend/project/images/Go Trip.png)
+![This is an image](/fronend/project/images/Go Trip.png)
 
 
 

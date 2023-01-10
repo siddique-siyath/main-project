@@ -11,7 +11,7 @@
 
 
 
-![This is an image](/fronend/project/images/GoTrip.png)
+![This is an image](/fronend/project/images/AdobeStock_304881889_Preview.jpeg)
 
 
 

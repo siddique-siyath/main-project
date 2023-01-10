@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { HotelServicesService } from "../../../../services/vendor_services/hotel_services/hotel-services.service";
+import { CarServicesService } from "../../../../services/vendor_services/car_services/car-services.service";
 import { VendorServicesService } from "../../../../services/vendor_services/vendor-services.service";
 import { Router } from "@angular/router";
 import jwt_decode from 'jwt-decode';
@@ -14,7 +14,7 @@ export class CarHomeComponent {
   status = false
   decode:any
 
-  constructor(private _auth: HotelServicesService, private Service:VendorServicesService , private route: Router) {
+  constructor(private _auth: CarServicesService, private Service:VendorServicesService , private route: Router) {
     console.log('status',this.status);
    }
 
@@ -24,7 +24,7 @@ export class CarHomeComponent {
 
   verify() {
     console.log('status',this.status);
-    let email:any = localStorage.getItem('email')
+    let email:any = localStorage.getItem('caremail')
     this.decode = jwt_decode(email)
     console.log('decode',this.decode.subject);
     this._auth.verification(this.decode).subscribe((res:any) => {

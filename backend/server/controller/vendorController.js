@@ -71,37 +71,37 @@ exports.vendor_login = async (req, res) => {
     try {
         const vendor = await Vendor.findOne({ email: vendordata.email })
         if (vendor) {
-            if(vendor.status != false){
-            const isMatch = await bcrypt.compare(vendordata.password, vendor.password)
-            console.log('success');
-            if (isMatch) {
-                let payload = { subject: vendor._id }
-                let token = jwt.sign(payload, 'secretKey')
-                let userEmail = { subject: vendor.email }
-                let emailId = jwt.sign(userEmail, 'secretKey')
+            if (vendor.status != false) {
+                const isMatch = await bcrypt.compare(vendordata.password, vendor.password)
+                console.log('success');
+                if (isMatch) {
+                    let payload = { subject: vendor._id }
+                    let token = jwt.sign(payload, 'secretKey')
+                    let userEmail = { subject: vendor.email }
+                    let emailId = jwt.sign(userEmail, 'secretKey')
 
-                if (vendor.field == 'Hotel') {
-                    return res.json({ message: 'hotel_logined', token, emailId, status: vendor.verification })
-                } else if (vendor.field == 'restaurant') {
-                    return res.json({ message: 'restaurant_logined', token, status: vendor.verification })
-                } else if (vendor.field == 'car') {
-                    return res.json({ message: 'car_logined', token, status: vendor.verification })
-                } else if (vendor.field == 'guide') {
-                    return res.json({ message: 'guide_logined', token, status: vendor.verification })
+                    if (vendor.field == 'Hotel') {
+                        return res.json({ message: 'hotel_logined', token, emailId, status: vendor.verification })
+                    } else if (vendor.field == 'restaurant') {
+                        return res.json({ message: 'restaurant_logined', token, emailId, status: vendor.verification })
+                    } else if (vendor.field == 'car') {
+                        return res.json({ message: 'car_logined', token, emailId, status: vendor.verification })
+                    } else if (vendor.field == 'guide') {
+                        return res.json({ message: 'guide_logined', token, emailId, status: vendor.verification })
+                    } else {
+                        console.log(err);
+                    }
+
+                    // res.status(200)
+                    // return res.json({ message: 'logined', token })
+
                 } else {
-                    console.log(err);
+                    // res.status(401)
+                    return res.json({ errMessage: "incorrectPassword" })
                 }
-
-                // res.status(200)
-                // return res.json({ message: 'logined', token })
-           
             } else {
-                // res.status(401)
-                return res.json({ errMessage: "incorrectPassword" })
+                return res.json({ errMessage: 'vendorBlocked' })
             }
-        }else{
-            return res.json({errMessage : 'vendorBlocked'})
-        }
         } else {
             // res.status(401)
             return res.json({ errMessage: 'incorrectEmail' })
@@ -120,16 +120,17 @@ exports.vendor_login = async (req, res) => {
 exports.verify = async (req, res) => {
     let Email = req.query.subject
     console.log(Email);
-    try{
-    let hotel = await Vendor.findOne({email:Email})
-    if(hotel){
-        let verify = hotel.verification
-        res.json({verification:verify})
-    }else{
-        console.log(err);
+    try {
+        let vendor = await Vendor.findOne({ email: Email })
+        if (vendor) {
+            console.log(vendor);
+            let verify = vendor.verification
+            res.json({ verification: verify })
+        } else {
+            console.log(err);
+        }
     }
-    }
-    catch(err){
+    catch (err) {
         console.log(err);
     }
 }

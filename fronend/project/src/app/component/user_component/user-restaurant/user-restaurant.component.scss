@@ -1,0 +1,28 @@
+.rotate_main {
+    transition: transform .7s ease-in-out;
+}
+
+.rotate_main:hover {
+    transform: rotate(360deg);
+}
+
+
+
+
+.hide-scroll-bar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .hide-scroll-bar::-webkit-scrollbar {
+    display: none;
+  }
+
+
+
+
+
+
+
+
+
+

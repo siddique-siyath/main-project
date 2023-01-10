@@ -34,9 +34,27 @@ import { VendorDetailsComponent } from './component/admin_component/vendor-detai
 import { VendorVerifyComponent } from './component/admin_component/vendor-verify/vendor-verify.component';
 import { AuthGuard } from './services/user_services/auth.guard';
 import { AuthAdminGuard } from './services/admin_services/auth-admin.guard';
+import { UserHotelComponent } from './component/user_component/user-hotel/user-hotel.component';
+import { UserSubNavbarComponent } from './navbar/user-navbar/user-sub-navbar/user-sub-navbar.component';
+import { UserFooterComponent } from './footer/user-footer/user-footer.component';
+import { UserRestaurantComponent } from './component/user_component/user-restaurant/user-restaurant.component';
+import { UserPlaceComponent } from './component/user_component/user-place/user-place.component';
+import { UserCarComponent } from './component/user_component/user-car/user-car.component';
+import { UserGuideComponent } from './component/user_component/user-guide/user-guide.component';
+import { UserProfileComponent } from './component/user_component/user-profile/user-profile.component';
+import { UserHotelDetailsComponent } from './component/user_component/user-hotel-details/user-hotel-details.component';
+import { UserRestaurantDetailsComponent } from './component/user_component/user-restaurant-details/user-restaurant-details.component';
+
+import { UserGuideDetailsComponent } from './component/user_component/user-guide-details/user-guide-details.component';
+import { UserPlaceDetailsComponent } from './component/user_component/user-place-details/user-place-details.component';
 
 
-// import{MatDialogModule} from '@angular/material';  
+import { GalleryModule } from 'ng-gallery';
+import { LightboxModule } from 'ng-gallery/lightbox';
+
+import {CloudinaryModule} from '@cloudinary/ng';
+
+import { NgxDropzoneModule } from 'ngx-dropzone';
 
 @NgModule({
   declarations: [
@@ -62,6 +80,18 @@ import { AuthAdminGuard } from './services/admin_services/auth-admin.guard';
     CarHomeComponent,
     VendorDetailsComponent,
     VendorVerifyComponent,
+    UserHotelComponent,
+    UserSubNavbarComponent,
+    UserFooterComponent,
+    UserRestaurantComponent,
+    UserPlaceComponent,
+    UserCarComponent,
+    UserGuideComponent,
+    UserProfileComponent,
+    UserHotelDetailsComponent,
+    UserRestaurantDetailsComponent,
+    UserGuideDetailsComponent,
+    UserPlaceDetailsComponent,
   ],
   imports: [
     BrowserModule,
@@ -70,9 +100,20 @@ import { AuthAdminGuard } from './services/admin_services/auth-admin.guard';
     MatSlideToggleModule,
     HttpClientModule,
     FormsModule,
-    // MatDialogModule
+    
+    MatSlideToggleModule,
+
+    GalleryModule.withConfig({
+      // thumbView: 'contain',
+    }),
+    LightboxModule,
+
+    CloudinaryModule,
+
+    NgxDropzoneModule
   ],
   providers: [AuthGuard,AuthAdminGuard],
   bootstrap: [AppComponent]
 })
+
 export class AppModule { }

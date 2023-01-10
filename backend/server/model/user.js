@@ -15,6 +15,9 @@ const UserSchema = new Schema({
         type: String,
         required: true
     },
+    profilePhoto:{
+        type: String
+    },
     status: {
         type: Boolean
     }

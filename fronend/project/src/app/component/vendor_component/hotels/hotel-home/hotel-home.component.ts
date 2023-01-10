@@ -22,7 +22,7 @@ export class HotelHomeComponent implements OnInit {
 
   verify() {
       console.log('status',this.status);
-      let email:any = localStorage.getItem('email')
+      let email:any = localStorage.getItem('hotelemail')
       this.decode = jwt_decode(email)
       console.log('decode',this.decode.subject);
       this._auth.verification(this.decode).subscribe((res:any) => {

@@ -6,7 +6,8 @@ var jwt = require('jsonwebtoken');
 
 const store = require('../middleware/multer')
 
-const jwt_decode = require("jwt-decode")
+const jwt_decode = require("jwt-decode");
+const { updateMany } = require('../model/vendor');
 
 
 var session = express('session')
@@ -200,6 +201,88 @@ exports.hotel_home = async (req, res) => {
         console.log(err.message);
     }
 }
+
+
+
+// hotel_add_services
+
+exports.hotel_add_services = async (req, res) => {
+    let services = await req.body.service
+    let Email = req.body.email
+    console.log(services);
+    console.log(Email);
+
+    try {
+        Email = jwt_decode(Email)
+        console.log(Email.subject);
+
+        Vendor.findOne({ email: Email.subject })
+            .then((res) => {
+                Vendor.updateOne(
+
+                    {
+                        $set: {
+                            totalRooms: services.totalRooms,
+                            description: services.description,
+                            actualPrice: services.actualPrice,
+                            discountPrice: services.discountPrice,
+                            addRoomsFeature: services.addRoomsFeature,
+                            addRoomsTypes: services.addRoomsTypes,
+                            image1: services.image1,
+                            subImages: services.subImages
+                        }
+                    })
+                    .then((result) => {
+                        console.log('haii');
+                        if (result) {
+                            console.log('result = ', result);
+                            // res.status(200)
+                            res.json({ message: 'Data_Added' })
+                        } else {
+                            console.log(err);
+                            res.status(400)
+                        }
+                    })
+
+            })
+    }
+    catch (err) {
+        console.log(err);
+    }
+}
+
+
+
+// hotel_details
+
+exports.hotel_details = async (req, res) => {
+    let Email = req.query.subject
+    console.log(Email);
+
+    try {
+        const vendorData = await Vendor.findOne({ email: Email })
+        if (vendorData) {
+            console.log(vendorData);
+            let result = {
+                hotelName: vendorData.hotelName, location: vendorData.location, totalRooms: vendorData.totalRooms,
+                actualPrice: vendorData.actualPrice, discountPrice: vendorData.discountPrice, description: vendorData.description,
+                addRoomsFeature: vendorData.addRoomsFeature, addRoomsTypes: vendorData.addRoomsTypes, image1: vendorData.image1,
+                subImages: vendorData.subImages
+            };
+            console.log('result = ',result);
+            res.json({ result })
+        } else {
+            console.log('error');
+            res.status(401)
+        }
+    }
+    catch (err) {
+        console.log(err);
+    }
+}
+
+
+
 
 
 

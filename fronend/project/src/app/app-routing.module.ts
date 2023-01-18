@@ -23,7 +23,9 @@ import { CarHomeComponent } from './component/vendor_component/car/car-home/car-
 import { GuideAddDetailsComponent } from './component/vendor_component/guide/guide-add-details/guide-add-details.component';
 import { GuideHomeComponent } from './component/vendor_component/guide/guide-home/guide-home.component';
 import { HotelAddDetailsComponent } from './component/vendor_component/hotels/hotel-add-details/hotel-add-details.component';
+import { HotelAddServiceComponent } from './component/vendor_component/hotels/hotel-add-service/hotel-add-service.component';
 import { HotelHomeComponent } from './component/vendor_component/hotels/hotel-home/hotel-home.component';
+import { HotelRoomDetailsComponent } from './component/vendor_component/hotels/hotel-room-details/hotel-room-details.component';
 import { RestaurantAddDetailsComponent } from './component/vendor_component/restaurant/restaurant-add-details/restaurant-add-details.component';
 import { RestaurantHomeComponent } from './component/vendor_component/restaurant/restaurant-home/restaurant-home.component';
 import { VendorFieldComponent } from './component/vendor_component/vendor-field/vendor-field.component';
@@ -151,6 +153,14 @@ const routes: Routes = [
   {
     path: 'vendor/hotel_home',
     component: HotelHomeComponent
+  },
+  {
+    path: 'vendor/hotel/service_add',
+    component:HotelAddServiceComponent
+  },
+  {
+    path: 'vendor/hotel/room_details',
+    component:HotelRoomDetailsComponent
   },
 
   {

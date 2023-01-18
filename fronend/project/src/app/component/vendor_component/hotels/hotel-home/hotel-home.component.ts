@@ -11,6 +11,8 @@ import jwt_decode from 'jwt-decode';
 })
 export class HotelHomeComponent implements OnInit {
 
+  showFiller = false;
+
   status = false
   decode:any
 

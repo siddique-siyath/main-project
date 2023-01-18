@@ -33,14 +33,14 @@ const VendorSchema = new Schema({
         type: String,
         // required: true
     },
-    carNumber:{
-        type:String,
+    carNumber: {
+        type: String,
     },
-    restaurantName:{
-        type : String,
+    restaurantName: {
+        type: String,
     },
-    adharNumber:{
-        type : String,
+    adharNumber: {
+        type: String,
     },
     location: {
         type: String,
@@ -54,9 +54,30 @@ const VendorSchema = new Schema({
         type: String,
         // required: true
     },
-    image1:{
-        type:String
-    }
+    image1: {
+        type: String
+    },
+    totalRooms: {
+        type: String
+    },
+    description: {
+        type: String
+    },
+    actualPrice: {
+        type: String
+    },
+    discountPrice: {
+        type: String
+    },
+    addRoomsFeature: [
+
+    ],
+    addRoomsTypes: [
+
+    ],
+    subImages: [
+
+    ]
 
 }, { timestamps: true })
 

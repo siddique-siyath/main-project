@@ -1,5 +1,6 @@
 
 const Admin = require('../model/admin')
+
 const User = require('../model/user')
 
 const bcrypt = require('bcrypt');
@@ -31,7 +32,7 @@ exports.admin_login = (req, res) => {
                             // res.status(200)
                             let payload = { subject: result._id }
                             let token = jwt.sign(payload, 'secretKey')
-                            res.json({ message: 'admin_logined' ,token})
+                            res.json({ message: 'admin_logined', token })
                         } else {
                             // res.status(401)
                             res.json({ errMessage: 'incorrectPassword' })
@@ -224,7 +225,7 @@ exports.vendorUnBlock = (req, res) => {
 // verify_vendor
 
 
-exports.verify_vendor = (req,res) => {
+exports.verify_vendor = (req, res) => {
     console.log('asdfghj');
     console.log(req.body.queryParams.id);
     try {

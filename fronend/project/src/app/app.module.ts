@@ -52,9 +52,23 @@ import { UserPlaceDetailsComponent } from './component/user_component/user-place
 import { GalleryModule } from 'ng-gallery';
 import { LightboxModule } from 'ng-gallery/lightbox';
 
-import {CloudinaryModule} from '@cloudinary/ng';
+import { CloudinaryModule } from '@cloudinary/ng';
 
 import { NgxDropzoneModule } from 'ngx-dropzone';
+
+import { GoogleMapsModule } from '@angular/google-maps';
+import { VendorNavbarComponent } from './navbar/vendor-navbar/vendor-navbar.component'
+
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatFormFieldModule } from '@angular/material/form-field';
+
+import { HotelAddServiceComponent } from './component/vendor_component/hotels/hotel-add-service/hotel-add-service.component';
+import { HotelRoomDetailsComponent } from './component/vendor_component/hotels/hotel-room-details/hotel-room-details.component';
+
+import { MatTableModule } from '@angular/material/table';
+import { CdkTableModule } from '@angular/cdk/table';
+import { MatInputModule } from '@angular/material/input';
+import { MatPaginatorModule } from '@angular/material/paginator';
 
 @NgModule({
   declarations: [
@@ -92,6 +106,9 @@ import { NgxDropzoneModule } from 'ngx-dropzone';
     UserRestaurantDetailsComponent,
     UserGuideDetailsComponent,
     UserPlaceDetailsComponent,
+    VendorNavbarComponent,
+    HotelAddServiceComponent,
+    HotelRoomDetailsComponent,
   ],
   imports: [
     BrowserModule,
@@ -100,7 +117,7 @@ import { NgxDropzoneModule } from 'ngx-dropzone';
     MatSlideToggleModule,
     HttpClientModule,
     FormsModule,
-    
+
     MatSlideToggleModule,
 
     GalleryModule.withConfig({
@@ -110,9 +127,21 @@ import { NgxDropzoneModule } from 'ngx-dropzone';
 
     CloudinaryModule,
 
-    NgxDropzoneModule
+    NgxDropzoneModule,
+
+    GoogleMapsModule,
+
+    MatSidenavModule,
+    MatFormFieldModule,
+
+    MatTableModule,
+    CdkTableModule,
+    MatInputModule,
+    MatPaginatorModule
+
+
   ],
-  providers: [AuthGuard,AuthAdminGuard],
+  providers: [AuthGuard, AuthAdminGuard],
   bootstrap: [AppComponent]
 })
 

@@ -10,6 +10,8 @@ router.get('/verify',services.verify)
 
 router.post('/add_hotel',store.any(), services.add_hotel )
 router.get('/hotel_home',services.hotel_home)
+router.post('/add_hotel_services',services.hotel_add_services)
+router.get('/hotel_details',services.hotel_details)
 
 
 router.post('/add_restaurant',store.any(), services.add_restaurant )

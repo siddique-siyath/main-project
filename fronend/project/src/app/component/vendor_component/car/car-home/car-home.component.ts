@@ -1,8 +1,11 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { CarServicesService } from "../../../../services/vendor_services/car_services/car-services.service";
 import { VendorServicesService } from "../../../../services/vendor_services/vendor-services.service";
 import { Router } from "@angular/router";
 import jwt_decode from 'jwt-decode';
+
+
+
 
 @Component({
   selector: 'app-car-home',
@@ -33,4 +36,12 @@ export class CarHomeComponent {
     })
   }
   
+
+
+
+
+
+
+
+
 }

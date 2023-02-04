@@ -1,0 +1,238 @@
+<app-hotel-navbar></app-hotel-navbar>
+
+
+<section class="h-full w-full bg-gray-800">
+
+    <div class="bg-gray-800 pt-20 flex justify-center">
+
+        <div class="basis-5/6 ml-2 mr-2">
+
+            <form>
+                <div class="flex md:gap-10 flex-col">
+
+                    <div class="grid md:grid-cols-2 md:gap-6">
+                        <div class="relative z-0 w-full mb-6 group">
+                            <input [(ngModel)]="hotelData.name" type="text" name="name" id="name"
+                                class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+                                placeholder=" " required />
+                            <label for="name"
+                                class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">
+                                Hotel name</label>
+                        </div>
+
+                        <div class="relative z-0 w-full mb-6 group">
+                            <input [(ngModel)]="hotelData.totalRooms" type="text" name="totalRooms" id="totalRooms"
+                                class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+                                placeholder=" " required />
+                            <label for="totalRooms"
+                                class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">
+                                total number of rooms </label>
+                        </div>
+
+
+                    </div>
+
+
+                    <div class="grid md:grid-cols-2 md:gap-6">
+                        <div class="relative z-0 w-full mb-6 group">
+                            <input [(ngModel)]="hotelData.description" type="text" name="description" id="description"
+                                class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+                                placeholder=" " required />
+                            <label for="description"
+                                class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">description
+                            </label>
+                        </div>
+
+                        <div class="relative z-0 w-full mb-6 group">
+                            <input [(ngModel)]="hotelData.location" type="text" name="location" id="location"
+                                class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+                                placeholder=" " required />
+                            <label for="location"
+                                class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">location
+                            </label>
+                        </div>
+
+                    </div>
+
+
+                    <div class="grid md:grid-cols-2 md:gap-6">
+                        <div class="relative z-0 w-full mb-6 group">
+                            <input [(ngModel)]="hotelData.actualPrice" type="text" name="actualPrice" id="actualPrice"
+                                class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+                                placeholder=" " required />
+                            <label for="actualPrice"
+                                class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">
+                                actual Price </label>
+                        </div>
+                        <div class="relative z-0 w-full mb-6 group">
+                            <input [(ngModel)]="hotelData.discountPrice" type="text" name="discountPrice"
+                                id="discountPrice"
+                                class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+                                placeholder=" " required />
+                            <label for="discountPrice"
+                                class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">
+                                Discount Price </label>
+                        </div>
+                    </div>
+
+
+                    <div class="grid md:grid-cols-3 md:gap-6">
+
+                        <div *ngFor="let featureBox of featureBoxs">
+
+                            <div class="relative z-0 w-full mb-6 group">
+
+
+                                <input [(ngModel)]="featureBox.value" type="text" name="addRoomsFeature"
+                                    id="addRoomsFeature"
+                                    class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+                                    placeholder="{{featureBox.value}}" required />
+
+
+
+
+                                <div *ngIf="!featureBox.value">
+                                    <label for="addRoomsFeature"
+                                        class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">
+                                        Add rooms features </label>
+                                </div>
+                                <div *ngIf="featureBox.value != ' ' ">
+                                    <label for="addRoomsFeature"
+                                        class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">
+                                        {{featureBox.value}} </label>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="flex justify-center items-center">
+                            <button type="submit" (click)="Feature()"
+                                class="basis-1/6 md:basis-1/12 hover:scale-110 duration-150 text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Add</button>
+
+                            <button type="submit" (click)="removeFeature()"
+                                class="ml-5 basis-1/6 md:basis-1/12 hover:scale-110 duration-150 text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">remove</button>
+                        </div>
+
+                    </div>
+
+
+
+                    <div class="grid md:grid-cols-3 md:gap-6">
+
+                        <div *ngFor="let typeBox of typeBoxs">
+
+                            <div class="relative z-0 w-full mb-6 group">
+
+                                <input [(ngModel)]="typeBox.value" type="text" name="addRoomsType" id="addRoomsType"
+                                    class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+                                    placeholder="{{typeBox.value}}" required />
+
+
+
+
+                                <div *ngIf="!typeBox.value">
+                                    <label for="addRoomsType"
+                                        class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">
+                                        Rooms Type </label>
+                                </div>
+                                <div *ngIf="typeBox.value != ' ' ">
+                                    <label for="addRoomsType"
+                                        class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">
+                                        {{typeBox.value}} </label>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+
+
+                        <div class="flex justify-center items-center">
+
+                            <button type="submit" (click)="Type()"
+                                class="basis-1/6 md:basis-1/12 hover:scale-110 duration-150 text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Add</button>
+
+                            <button type="submit" (click)="removeType()"
+                                class="ml-5 basis-1/6 md:basis-1/12 hover:scale-110 duration-150 text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">remove</button>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="grid md:grid-cols-3 md:gap-6">
+
+                        <div class="relative z-0 w-full mb-6 group">
+
+                            <div class="basis-3/6 flex justify-center flex-col">
+
+                                <div class="-mt-9">
+                                    <ngx-dropzone (change)="onSelect($event)" class="h-10 mb-20 name">
+                                        <ngx-dropzone-label class="plus">+</ngx-dropzone-label>
+                                        <ngx-dropzone-image-preview ngProjectAs="ngx-dropzone-preview"
+                                            *ngFor="let f of files" [file]="f" [removable]="true"
+                                            (removed)="onRemove(f)">
+                                            <!-- <ngx-dropzone-label>{{ f.name }} ({{ f.type }})</ngx-dropzone-label> -->
+                                        </ngx-dropzone-image-preview>
+                                    </ngx-dropzone>
+
+
+                                </div>
+                                <p class="text-red-600 flex justify-center">{{uploadMessageErr}}</p>
+                                <p class="text-green-500 flex justify-center">{{uploadMessage}}</p>
+                                <div class="flex justify-center">
+                                    <button type="submit" (click)="onupload()"
+                                        class="basis-1/6 md:basis-1/12 hover:scale-110 duration-150 text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">upload</button>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="relative z-0 w-full mb-6 group">
+
+                            <div class="basis-3/6 flex justify-center flex-col">
+
+                                <div class="-mt-9">
+                                    <!-- <ngx-dropzone (change)="onSelect($event)" class="h-10 mb-20 name">
+                                        <ngx-dropzone-label class="plus">+</ngx-dropzone-label>
+                                        <ngx-dropzone-image-preview ngProjectAs="ngx-dropzone-preview"
+                                            *ngFor="let f of files" [file]="f" [removable]="true"
+                                            (removed)="onRemove(f)">
+                                        </ngx-dropzone-image-preview>
+                                    </ngx-dropzone> -->
+
+
+                                </div>
+                                <div class="flex justify-center">
+                                    <!-- <button type="submit" (click)="onupload()"
+                                        class="basis-1/6 md:basis-1/12 hover:scale-110 duration-150 text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">upload</button> -->
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="text-red-600 flex justify-center">
+                        <p>{{message}}</p>
+                    </div>
+
+                    <div class="flex justify-center mb-20">
+                        <button type="submit" (click)="editData()"
+                            class="basis-1/6 md:basis-1/12 hover:scale-110 duration-150 text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Submit</button>
+                    </div>
+
+
+                </div>
+
+            </form>
+
+        </div>
+
+
+    </div>
+
+</section>

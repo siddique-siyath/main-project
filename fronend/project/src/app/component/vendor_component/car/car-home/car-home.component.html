@@ -1,0 +1,26 @@
+
+
+<p *ngIf="status == true">car-home works!</p>
+
+
+<div *ngIf="status == false" class="bg-slate-400 h-full w-full flex justify-center items-center">
+    <div class="h-40 w-80 bg-blue-700 rounded-lg flex justify-center items-center text-3xl hover:text-yellow-50 hover:shadow-lg hover:rounded-xl"><p>Verification pending</p></div>
+</div>
+
+
+
+
+
+<!-- 
+
+<google-map height="400px"
+            width="750px"
+            [center]="center"
+            [zoom]="zoom"
+            (mapClick)="addMarker($event)">
+  <map-marker #marker="mapMarker"
+              *ngFor="let markerPosition of markerPositions"
+              [position]="markerPosition"
+              (mapClick)="openInfoWindow(marker)"></map-marker>
+  <map-info-window>Info Window content</map-info-window>
+</google-map>   -->

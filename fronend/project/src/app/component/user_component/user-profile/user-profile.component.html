@@ -1,0 +1,57 @@
+<app-user-navbar></app-user-navbar>
+
+
+
+<section class=" w-full bg-gray-700 h-full overflow-hidden">
+    <div class="w-full h-full flex">
+
+    <div class="flex flex-col bg-gray-700 justify-center pt-10 mb-20 w-full h-full items-center">
+        <div class="basis-4/6 flex flex-col items-center justify-center w-full pl-10 pr-10">
+
+            <div class="basis-2/6 flex justify-center flex-col items-center" *ngIf="loading == false">
+                <advanced-image [cldImg]="img" class="w-20 h-20 " [ngStyle]="{'border-radius':'100%'}">
+                </advanced-image>
+
+                <div class="w-10 h-5 -mt-9">
+                    <ngx-dropzone (change)="onSelect($event)" class="h-10 mb-20 name">
+                        <ngx-dropzone-label class="plus">+</ngx-dropzone-label>
+                        <ngx-dropzone-image-preview ngProjectAs="ngx-dropzone-preview" *ngFor="let f of files"
+                            [file]="f" [removable]="true" (removed)="onRemove(f)">
+                            <!-- <ngx-dropzone-label>{{ f.name }} ({{ f.type }})</ngx-dropzone-label> -->
+                        </ngx-dropzone-image-preview>
+                    </ngx-dropzone>
+
+                   
+                </div>
+
+
+                <div class="text-center mt-10">
+
+                    <h1>{{UserData.name}}</h1>
+                </div>
+            </div>
+
+
+            <div class="loader" *ngIf="loading == true"></div>
+
+            <div class="basis-4/6 flex justify-center items-center">
+                <div>
+                    <h1>Name : {{UserData.name}}</h1>
+                    <h2>Email : {{UserData.email}}</h2>
+                    <h3>Ph no : 6787876798</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</section>
+
+
+
+
+
+
+
+
+    

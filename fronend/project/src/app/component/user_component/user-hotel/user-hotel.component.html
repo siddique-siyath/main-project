@@ -1,0 +1,91 @@
+<app-user-navbar></app-user-navbar>
+
+
+<app-user-sub-navbar></app-user-sub-navbar>
+
+<div class="overflow-hidden">
+
+    <div class="flex flex-wrap flex-row justify-center mt-7">
+        <div class="flex flex-wrap flex-col ml-10">
+            <div class="text-3xl font-serif">Kochi To stay</div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 lg:gap-x-20 gap-y-10">
+                <div class="bg-slate-600 mt-5 border-l-8 border-l-lime-500"><input type="datetime-local"
+                        class="border-2 border-black lg:w-96 h-14 text-xl pl-3 hover:scale-110 duration-150 ease-in"
+                        placeholder="Check in"></div>
+                <div class="bg-slate-600 mt-5 border-l-8 border-l-lime-500"><input type="datetime-local"
+                        class="border-2 border-black lg:w-96 h-14 text-xl pl-3 hover:scale-110 duration-150 ease-in"
+                        placeholder="Check in"></div>
+                <div
+                    class="bg-white border-2 border-gray-700 h-14 border-l-8 border-l-lime-500 text-center pt-3 text-xl text-gray-600 text-opacity-95 hover:scale-110 duration-150 ease-in">
+                    <button class="">0 adult , 0 child , 0 romms </button>
+                </div>
+            </div>
+        </div>
+        <div class="sm:ml-10 mt-5">
+            <div>
+
+                <google-map height="400px"
+                    class="w-96 opacity-60 hover:opacity-100 hover:scale-110 duration-150 ease-in" [center]="center"
+                    [zoom]="zoom" (mapClick)="addMarker($event)">
+                    <map-marker #marker="mapMarker" *ngFor="let markerPosition of markerPositions"
+                        [position]="markerPosition" (mapClick)="openInfoWindow(marker)"></map-marker>
+                    <map-info-window>Info Window content</map-info-window>
+                </google-map>
+
+            </div>
+
+        </div>
+    </div>
+
+    <div class="bg-black mt-5 border-opacity-0 border-black" style="border-top-width: 1px;"></div>
+
+    <div class="flex justify-center mt-9">
+        <h1 class="basis-9/12 self-start"><span class="opacity-0">s</span>Last minute hotels near you</h1>
+    </div>
+
+    <div class="flex ml-5 mr-5 justify-center mb-10">
+        <div class="flex flex-col flex-wrap gap-5 mt-5 ml-8 mr-8 basis-3/4">
+            <div *ngFor="let item of hotelData">
+                <div *ngFor="let elem of item.hotelDetails">
+                    <div class="flex flex-col sm:flex-row border-black border-2 hover:scale-110 duration-200 ease-in mt-5"
+                        (click)="hotelDetails(elem.image1,item.vendorId)">
+                        <!-- routerLink="/user_hotel_details" routerLinkActive="active"> -->
+                        <div class="flex justify-center">
+                            <advanced-image [cldImg]="elem.new"
+                                class="w-40 h-25 mt-1 ml-1 hover:scale-110 duration-150 ease-in-out"
+                                [ngStyle]="{'border-radius':'100%'}">
+                            </advanced-image>
+                        </div>
+                        <div class="w-full flex flex-wrap justify-between">
+                            <div class="ml-5 basis-3/6">
+                                <h2 class="mt-4">{{elem.name}}</h2>
+                                <h3>{{elem.location}}</h3>
+                                <div>
+                                    <p>Review 4.5</p>
+                                    <img class="w-28"
+                                        src="https://t4.ftcdn.net/jpg/03/52/11/77/360_F_352117727_d5h8yi1Smn7mxzYKte15ThuDlHzRuGkN.jpg"
+                                        alt="...">
+                                </div>
+                            </div>
+                            <div class="mr-10 basis-1/5 self-end">
+                                <h3 class="">From</h3>
+                                <p class="">{{elem.actualPrice}}</p>
+                                <p class="">For tonight</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+
+
+    </div>
+
+
+</div>
+
+
+
+<app-user-footer></app-user-footer>

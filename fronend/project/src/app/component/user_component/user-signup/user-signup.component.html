@@ -1,0 +1,204 @@
+<div class="flex justify-center items-center p-6 shadow-lg bg-black h-full overflow-hidden ">
+  <div class="w-80">
+    <form class="rounded">
+
+      <h2 class="fw-bold text-uppercase text-center text-white pt-2">{{sig}}</h2>
+
+
+
+
+      <div class="form-group mb-6 w-60">
+
+        <label class="block mb-1 ml-3 text-sm font-medium text-white"
+          for="typePasswordX">name</label>
+        <input
+          class="form-control ml-3 bg-gray-50 block w-72 px-3 py-1.5 text-base font-normal text-gray-700 border border-gray-300 focus:ring-blue-500 focus:border-blue-500 bg-clip-padding border-solid rounded transition ease-in-out m-0 focus:text-gray-700 focus:outline-none dark:bg-gray-700 dark:border-gray-600 "
+          id="exampleInputEmail2" type="text" id="name" name="name" required minlength="4" appForbiddenName="bob"
+          [(ngModel)]="registerUserData.name" #name="ngModel" placeholder="Enter email" style="color: white;">
+
+
+          <div class="wrapper" *ngIf="!name.invalid && (name.dirty || name.touched)" style="margin-top: -4.5rem; margin-right: -3.2rem;">
+            <svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 130.2 130.2">
+              <circle class="path circle" fill="none" stroke="#73AF55" stroke-width="6" stroke-miterlimit="10" cx="65.1" cy="65.1" r="62.1"/>
+              <polyline class="path check" fill="none" stroke="#73AF55" stroke-width="6" stroke-linecap="round" stroke-miterlimit="10" points="100.2,40.2 51.5,88.8 29.8,67.5 "/>
+            </svg>
+        </div>
+          
+          <div class="wrapper" *ngIf="name.invalid && (name.dirty || name.touched)" style="margin-top: -4.5rem; margin-right: -3.2rem;">
+          <svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 130.2 130.2">
+            <circle class="path circle" fill="none" stroke="#D06079" stroke-width="6" stroke-miterlimit="10" cx="65.1" cy="65.1" r="62.1"/>
+            <line class="path line" fill="none" stroke="#D06079" stroke-width="6" stroke-linecap="round" stroke-miterlimit="10" x1="34.4" y1="37.9" x2="95.8" y2="92.3"/>
+            <line class="path line" fill="none" stroke="#D06079" stroke-width="6" stroke-linecap="round" stroke-miterlimit="10" x1="95.8" y1="38" x2="34.4" y2="92.2"/>
+          </svg>
+          </div>
+
+
+        <div *ngIf="name.invalid && (name.dirty || name.touched)" class="alert">
+
+          <div *ngIf="name.errors?.['required']" class="text-red-700 font-semibold mt-2 ml-4">
+            Name is required.
+          </div>
+          <div *ngIf="name.errors?.['minlength']" class="text-red-700 w-72 font-semibold mt-2 ml-4">
+            Name must be at least 4 characters long.
+          </div>
+          <div *ngIf="name.errors?.['forbiddenName']" class="text-red-700 font-semibold mt-2 ml-4">
+            Name cannot be Bob.
+          </div>
+        </div>
+
+
+
+
+      </div>
+
+
+      <div class="form-group mb-6">
+
+        <label class="block mb-1 ml-3 text-sm font-medium text-white"
+          for="typePasswordX">email</label>
+        <input type="email" name="email" [(ngModel)]="registerUserData.email"
+          class="form-control ml-3 bg-gray-50 block w-72 px-3 py-1.5 text-base font-normal text-gray-700 border border-gray-300 focus:ring-blue-500 focus:border-blue-500 bg-clip-padding border-solid rounded transition ease-in-out m-0 focus:text-gray-700 focus:outline-none dark:bg-gray-700 dark:border-gray-600 "
+          [pattern]=emailPattern #email="ngModel" required placeholder="enter your email" style="color: white;">
+
+
+          <div class="wrapper" *ngIf="!email.invalid && ( email.dirty || email.touched) && !email.errors?.['pattern']" style="margin-top: -4.5rem; margin-right: 1.5rem;">
+            <svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 130.2 130.2">
+              <circle class="path circle" fill="none" stroke="#73AF55" stroke-width="6" stroke-miterlimit="10" cx="65.1" cy="65.1" r="62.1"/>
+              <polyline class="path check" fill="none" stroke="#73AF55" stroke-width="6" stroke-linecap="round" stroke-miterlimit="10" points="100.2,40.2 51.5,88.8 29.8,67.5 "/>
+            </svg>
+          </div>
+            
+            <div class="wrapper" *ngIf="email.invalid && ( email.dirty || email.touched)" style="margin-top: -4.5rem; margin-right: 1.5rem;">
+            <svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 130.2 130.2">
+              <circle class="path circle" fill="none" stroke="#D06079" stroke-width="6" stroke-miterlimit="10" cx="65.1" cy="65.1" r="62.1"/>
+              <line class="path line" fill="none" stroke="#D06079" stroke-width="6" stroke-linecap="round" stroke-miterlimit="10" x1="34.4" y1="37.9" x2="95.8" y2="92.3"/>
+              <line class="path line" fill="none" stroke="#D06079" stroke-width="6" stroke-linecap="round" stroke-miterlimit="10" x1="95.8" y1="38" x2="34.4" y2="92.2"/>
+            </svg>
+            </div>
+
+
+        <div *ngIf="email.invalid && ( email.dirty || email.touched)">
+          <div *ngIf="email.errors?.['required']" class="text-red-700 font-semibold mt-2 ml-4">
+            email is required.
+          </div>
+          <div *ngIf="email.errors?.['pattern']" class="text-red-700 font-semibold mt-2 ml-4">
+            Email is not valid.
+          </div>
+        </div>
+
+
+      </div>
+
+
+
+
+      <div class="form-group mb-6">
+
+
+        <label class="block mb-1 ml-3 text-sm font-medium text-white"
+          for="typePasswordX">Password</label>
+        <input
+          class="form-control ml-3 bg-gray-50 block w-72 px-3 py-1.5 text-base font-normal text-gray-700 border border-gray-300 focus:ring-blue-500 focus:border-blue-500 bg-clip-padding border-solid rounded transition ease-in-out m-0 focus:text-gray-700 focus:outline-none dark:bg-gray-700 dark:border-gray-600 "
+          style="color: white;" type="password" id="password" name="password" [(ngModel)]="registerUserData.password"
+          #password="ngModel" required pattern="(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&]).{8,}" placeholder="password" />
+
+
+          <div class="wrapper" *ngIf="!password.invalid && (password.dirty || password.touched)" style="margin-top: -4.5rem; margin-right: 1.5rem;">
+            <svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 130.2 130.2">
+              <circle class="path circle" fill="none" stroke="#73AF55" stroke-width="6" stroke-miterlimit="10" cx="65.1" cy="65.1" r="62.1"/>
+              <polyline class="path check" fill="none" stroke="#73AF55" stroke-width="6" stroke-linecap="round" stroke-miterlimit="10" points="100.2,40.2 51.5,88.8 29.8,67.5 "/>
+            </svg>
+        </div>
+          
+          <div class="wrapper" *ngIf="password.invalid && (password.dirty || password.touched)" style="margin-top: -4.5rem; margin-right: 1.5rem;">
+          <svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 130.2 130.2">
+            <circle class="path circle" fill="none" stroke="#D06079" stroke-width="6" stroke-miterlimit="10" cx="65.1" cy="65.1" r="62.1"/>
+            <line class="path line" fill="none" stroke="#D06079" stroke-width="6" stroke-linecap="round" stroke-miterlimit="10" x1="34.4" y1="37.9" x2="95.8" y2="92.3"/>
+            <line class="path line" fill="none" stroke="#D06079" stroke-width="6" stroke-linecap="round" stroke-miterlimit="10" x1="95.8" y1="38" x2="34.4" y2="92.2"/>
+          </svg>
+          </div>
+
+
+        <div *ngIf="password.invalid && (password.dirty || password.touched)">
+          <div *ngIf="password.errors?.['required']" class="text-red-700 font-semibold mt-2 ml-4">
+            Password is required.
+          </div>
+          <div *ngIf="password.errors?.['pattern']" class="text-red-700 font-semibold mt-2 w-72 ml-4 text-center">
+            Password must contain a minimum length of 8 characters and at least one lowercase letter, one
+            uppercase letter, one digit, and one special character
+          </div>
+        </div>
+
+
+      </div>
+
+
+      <div class="form-group mb-6">
+
+        <label class="block mb-1 ml-3 text-sm font-medium text-white" for="typePassword">confirm
+          Password</label>
+        <input
+          class="form-control ml-3 bg-gray-50 block w-72 px-3 py-1.5 text-base font-normal text-gray-700 border border-gray-300 focus:ring-blue-500 focus:border-blue-500 bg-clip-padding border-solid rounded transition ease-in-out m-0 focus:text-gray-700 focus:outline-none dark:bg-gray-700 dark:border-gray-600 "
+          type="password" id="confirmPassword" name="confirmPassword" style="color: white;"
+          [(ngModel)]="registerData.confirmPassword" #confirmPassword="ngModel" required placeholder="confirm password" />
+
+
+          <div class="wrapper" *ngIf="!confirmPassword.invalid && (confirmPassword.dirty || confirmPassword.touched)" style="margin-top: -4.5rem; margin-right: 1.5rem;">
+            <svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 130.2 130.2">
+              <circle class="path circle" fill="none" stroke="#73AF55" stroke-width="6" stroke-miterlimit="10" cx="65.1" cy="65.1" r="62.1"/>
+              <polyline class="path check" fill="none" stroke="#73AF55" stroke-width="6" stroke-linecap="round" stroke-miterlimit="10" points="100.2,40.2 51.5,88.8 29.8,67.5 "/>
+            </svg>
+        </div>
+          
+          <div class="wrapper" *ngIf="confirmPassword.invalid && (confirmPassword.dirty || confirmPassword.touched)" style="margin-top: -4.5rem; margin-right: 1.5rem;">
+          <svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 130.2 130.2">
+            <circle class="path circle" fill="none" stroke="#D06079" stroke-width="6" stroke-miterlimit="10" cx="65.1" cy="65.1" r="62.1"/>
+            <line class="path line" fill="none" stroke="#D06079" stroke-width="6" stroke-linecap="round" stroke-miterlimit="10" x1="34.4" y1="37.9" x2="95.8" y2="92.3"/>
+            <line class="path line" fill="none" stroke="#D06079" stroke-width="6" stroke-linecap="round" stroke-miterlimit="10" x1="95.8" y1="38" x2="34.4" y2="92.2"/>
+          </svg>
+          </div>
+
+        <div *ngIf="confirmPassword.invalid && (confirmPassword.dirty || confirmPassword.touched)">
+          <div *ngIf="confirmPassword.errors?.['required']" class="text-red-700 font-semibold mt-2 ml-4">
+            confirm Password is required.
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <p class="text-red-700 font-semibold text-center">{{errorMsg}}</p>
+
+
+      <div class="flex justify-between items-center mb-6">
+        <a href="#!"
+          class="text-blue-600 hover:text-blue-700 focus:text-blue-700 transition duration-200 ease-in-out -mt-7 ml-44">Forgot
+          password?</a>
+      </div>
+
+
+
+
+
+      <button (click)="registerUser()" class="w-24 h-10 ml-24 -mt-2
+      bg-blue-600
+      text-white
+      content-center
+      font-medium
+      leading-tight
+      uppercase
+      rounded
+      shadow-md
+      hover:bg-blue-700 hover:shadow-lg
+      focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0
+      active:bg-blue-800 active:shadow-lg
+      transition
+      duration-150" type="submit">Sign up</button>
+
+      <p class="text-white pt-8">Have an account ? <a routerLink="/user_login" routerLinkActive="active"
+          class="text-blue-600 hover:text-blue-700 focus:text-blue-700 transition duration-200 ease-in-out">Login</a>
+      </p>
+    </form>
+  </div>
+</div>
